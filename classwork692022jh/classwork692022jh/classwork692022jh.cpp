@@ -1,21 +1,51 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
-int main()
-{
-    //adding numbers into vector
+class Vector3d {
+private:
+	float x;
+	float y;
+	float z;
+public:
+	void operator-=(const Vector3d& v);
+	void operator+=(const Vector3d& v);
+	void operator*=(const Vector3d& v);
+	void operator/=(const Vector3d& v);
+};
 
-    vector<int> num{ 1, 2, 3 };
+void Vector3d::operator +=(const Vector3d& v) {
 
-    num.push_back(4);
-    num.push_back(5);
 
-    cout << "vector with added 4 and 5: ";
 
-    for (const int& i : num) {
-        cout << i << "  ";
-    }
+	x += v.x;
+	y += v.y;
+	z += v.z;
 }
 
+void Vector3d::operator -=(const Vector3d& v)
+{
+	x -= v.x;
+	y -= v.y;
+	z -= v.z;
+}
+
+void Vector3d::operator *=(const Vector3d& v) {
+	x *= v.x;
+	y *= v.y;
+	z *= v.z;
+}
+
+void Vector3d::operator /=(const Vector3d& v) {
+	x /= v.x;
+	y /= v.y;
+	z /= v.z;
+}
+
+float Vector3d::calcScalarProduct(const Vector3d& v) const {
+	return x * v.x + y * v.y + z * v.z;
+}
+
+int main() {
+
+}
